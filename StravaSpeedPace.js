@@ -65,7 +65,10 @@ function getPace(dist, distUnit, time)
 	}
 
 	let pace = (timeInMins / dist);
-	let paceStr = Math.floor(pace) + ":" + ((pace % 1) * 60).toFixed(0) + (distUnit == "km" ? " min/km" : " min/mile");
+    	let hours = Math.floor(pace);
+    	let minsWithLeadingZero = '0' + ((pace % 1) * 60).toFixed(0);
+    	let mins = minsWithLeadingZero.slice(minsWithLeadingZero.length - 2);
+	let paceStr = hours + ":" + mins + (distUnit == "km" ? " min/km" : " min/mile");
 	return paceStr;
 }
 
